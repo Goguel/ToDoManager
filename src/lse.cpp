@@ -44,7 +44,10 @@ void Lse::inserir(Tarefa novaTarefa)
     nn->value = novaTarefa;
     nn->proximo = nullptr;
 
-    _buscarUltimo(_head)->proximo = nn;
+    // A partir da inserção da segunda tarefa:
+    if (_buscarUltimo(_head) != nullptr) {
+        _buscarUltimo(_head)->proximo = nn;
+    }
 }
 
 void Lse::exibir()
