@@ -44,7 +44,16 @@ void Lse::inserir(Tarefa novaTarefa)
     nn->value = novaTarefa;
     nn->proximo = nullptr;
 
-    _buscarUltimo(_head)->proximo = nn;
+    No<Tarefa> *ultimo = _buscarUltimo(_head);
+
+    if (ultimo == nullptr)
+    {
+        _head = nn;
+        return;
+        return;
+    }
+
+    ultimo->proximo = nn;
 }
 
 void Lse::exibir()
