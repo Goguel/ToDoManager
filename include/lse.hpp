@@ -11,6 +11,7 @@ private:
     No<Tarefa> *_buscarUltimo(No<Tarefa> *h);
     // void _ordenar();
     void _exibirSeparador();
+    No<Tarefa> *_buscarAnterior(No<Tarefa> *h, No<Tarefa> *a);
 
 public:
     Lse();

@@ -1,4 +1,5 @@
 #include "../include/lse.hpp"
+#include <iostream>
 
 void exibirOpcoes();
 
@@ -36,7 +37,15 @@ int main()
         }
         case 3:
         {
-            std::cout << "Em desenvolvimento." << std::endl;
+            std::cout << "Digite a prioridade a ser removida: ";
+            int prioridade;
+            Prioridade removerPrioridade;
+            std::cin >> prioridade;
+
+            removerPrioridade = static_cast<Prioridade>(prioridade);
+            lista.remover(removerPrioridade);
+
+            //std::cout << "Tarefas com prioridade "<< prioridade << " foram removidas com sucesso" << std::endl;
             break;
         }
         case 4:
@@ -63,7 +72,7 @@ void exibirOpcoes()
     std::cout << "O que deseja fazer?" << std::endl;
     std::cout << "1. Visualizar suas tarefas" << std::endl;
     std::cout << "2. Adicionar uma nova tarefa" << std::endl;
-    std::cout << "3. Remover uma tarefa" << std::endl;
+    std::cout << "3. Remover uma tarefa por prioridade" << std::endl;
     std::cout << "4. Buscar uma tarefa" << std::endl;
     std::cout << "5. Sair" << std::endl;
 }
