@@ -1,4 +1,5 @@
 #include "../include/lse.hpp"
+#include <cstddef>
 #include <iostream>
 #include <ostream>
 
@@ -43,9 +44,15 @@ int main()
             Prioridade removerPrioridade;
             std::cin >> prioridade;
 
-            // Verificar se existe a prioridade.
+            if ((prioridade != Prioridade::ALTA) && (prioridade != Prioridade::MEDIA) && (prioridade != Prioridade::BAIXA))
+            {
+                std::cout << "\nEssa prioridade inserida não existe.\n" << std::endl;
+                break;
+            }
+
             removerPrioridade = static_cast<Prioridade>(prioridade);
             bool situacao = lista.removerPrioridade(removerPrioridade);
+            
             if (situacao)
             {
                 std::cout << "\nTarefas com prioridade "<< prioridade << " foram removidas com sucesso.\n" << std::endl;
@@ -63,7 +70,7 @@ int main()
             {
                 std::cout << "\nTarefa com id " << id << " foi removida com sucesso.\n" << std::endl;
             }
-
+            break;
         }
         case 5:
         {
