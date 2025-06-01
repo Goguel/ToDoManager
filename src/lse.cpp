@@ -1,4 +1,5 @@
 #include "../include/lse.hpp"
+#include <cstddef>
 
 Lse::Lse()
 {
@@ -85,3 +86,59 @@ void Lse::_exibirSeparador()
 {
     std::cout << "----------------------------------------" << std::endl;
 }
+
+No<Tarefa> *Lse::_buscarAnterior(No<Tarefa> *h, No<Tarefa> *a) 
+{
+    No<Tarefa> *anterior = h;
+    
+    while(h != a) 
+    {
+        anterior = h;
+        h = h->proximo;
+    }
+
+    return anterior;
+}
+
+bool Lse::remover(Prioridade prioridade)
+{
+    No<Tarefa> *h = _head;
+    bool houveRemocao = false;
+
+    if (h == nullptr)
+    {
+        std::cout << "\nNão há tarefas para serem removidas.\n" << std::endl;
+    }
+
+    while (h != nullptr) 
+    {
+        Tarefa t = h->value;
+
+        if (t.id == prioridade) 
+        {
+            houveRemocao = true;
+            No<Tarefa> *a = h;
+            No<Tarefa> *anterior = _buscarAnterior(_head, h);
+
+            if (_head->value.descricao == h->value.descricao)
+            {
+                _head = h->proximo;
+            }
+            if (h->proximo == nullptr) 
+            {
+                anterior->proximo = nullptr;
+            } 
+            else
+            {
+                anterior->proximo = h->proximo;
+            } 
+            
+            delete a;
+        }
+
+        h = h->proximo;
+    }
+
+    return houveRemocao? true : false;
+}
+

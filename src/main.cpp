@@ -43,9 +43,12 @@ int main()
             std::cin >> prioridade;
 
             removerPrioridade = static_cast<Prioridade>(prioridade);
-            lista.remover(removerPrioridade);
-
-            //std::cout << "Tarefas com prioridade "<< prioridade << " foram removidas com sucesso" << std::endl;
+            bool situação = lista.remover(removerPrioridade);
+            if (situação)
+            {
+                std::cout << "\nTarefas com prioridade "<< prioridade << " foram removidas com sucesso\n" << std::endl;
+            }
+    
             break;
         }
         case 4:
