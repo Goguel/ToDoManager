@@ -20,8 +20,8 @@ public:
     static int length(No<Tarefa> *h);
 
     void inserir(Tarefa novaTarefa);
-    // void remover(int id);
-    bool remover(Prioridade prioridade);
+    bool removerId(int id);
+    bool removerPrioridade(Prioridade prioridade);
     // void buscar(int id);
     void exibir();
 };

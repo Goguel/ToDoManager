@@ -100,7 +100,7 @@ No<Tarefa> *Lse::_buscarAnterior(No<Tarefa> *h, No<Tarefa> *a)
     return anterior;
 }
 
-bool Lse::remover(Prioridade prioridade)
+bool Lse::removerPrioridade(Prioridade prioridade)
 {
     No<Tarefa> *h = _head;
     bool houveRemocao = false;
@@ -114,23 +114,23 @@ bool Lse::remover(Prioridade prioridade)
     {
         Tarefa t = h->value;
 
-        if (t.id == prioridade) 
+        if (t.prioridade == prioridade) 
         {
             houveRemocao = true;
             No<Tarefa> *a = h;
             No<Tarefa> *anterior = _buscarAnterior(_head, h);
 
-            if (_head->value.descricao == h->value.descricao)
+            if (_head->value.descricao == a->value.descricao)
             {
-                _head = h->proximo;
+                _head = a->proximo;
             }
-            if (h->proximo == nullptr) 
+            if (a->proximo == nullptr) 
             {
                 anterior->proximo = nullptr;
             } 
             else
             {
-                anterior->proximo = h->proximo;
+                anterior->proximo = a->proximo;
             } 
             
             delete a;
@@ -142,3 +142,45 @@ bool Lse::remover(Prioridade prioridade)
     return houveRemocao? true : false;
 }
 
+bool Lse::removerId(int id)
+{
+    No<Tarefa> *h = _head;
+    bool houveRemocao = false;
+
+    if (h == nullptr)
+    {
+        std::cout << "\nNão existe tarefa para ser removida.\n" << std::endl;
+    }
+
+    while (h != nullptr) 
+    {
+        Tarefa t = h->value;
+
+        if (t.id == id) 
+        {
+            houveRemocao = true;
+            No<Tarefa> *a = h;
+            No<Tarefa> *anterior = _buscarAnterior(_head, h);
+
+            if (_head->value.descricao == a->value.descricao)
+            {
+                _head = a->proximo;
+            }
+            if (a->proximo == nullptr) 
+            {
+                anterior->proximo = nullptr;
+            } 
+            else
+            {
+                anterior->proximo = a->proximo;
+            } 
+            
+            delete a;
+            break;
+        }
+
+        h = h->proximo;
+    }
+
+    return houveRemocao? true : false;
+}

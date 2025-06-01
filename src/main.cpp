@@ -1,5 +1,6 @@
 #include "../include/lse.hpp"
 #include <iostream>
+#include <ostream>
 
 void exibirOpcoes();
 
@@ -42,21 +43,34 @@ int main()
             Prioridade removerPrioridade;
             std::cin >> prioridade;
 
+            // Verificar se existe a prioridade.
             removerPrioridade = static_cast<Prioridade>(prioridade);
-            bool situação = lista.remover(removerPrioridade);
-            if (situação)
+            bool situacao = lista.removerPrioridade(removerPrioridade);
+            if (situacao)
             {
-                std::cout << "\nTarefas com prioridade "<< prioridade << " foram removidas com sucesso\n" << std::endl;
+                std::cout << "\nTarefas com prioridade "<< prioridade << " foram removidas com sucesso.\n" << std::endl;
             }
-    
             break;
         }
         case 4:
         {
+            std::cout << "Digite o id a ser removido: ";
+            int id;
+            std::cin >> id;
+
+            bool situacao = lista.removerId(id);
+            if (situacao)
+            {
+                std::cout << "\nTarefa com id " << id << " foi removida com sucesso.\n" << std::endl;
+            }
+
+        }
+        case 5:
+        {
             std::cout << "Em desenvolvimento." << std::endl;
             break;
         }
-        case 5:
+        case 6:
         {
             std::cout << "Saindo do gerenciador de tarefas. Até logo!" << std::endl;
             return 0;
@@ -75,7 +89,8 @@ void exibirOpcoes()
     std::cout << "O que deseja fazer?" << std::endl;
     std::cout << "1. Visualizar suas tarefas" << std::endl;
     std::cout << "2. Adicionar uma nova tarefa" << std::endl;
-    std::cout << "3. Remover uma tarefa por prioridade" << std::endl;
-    std::cout << "4. Buscar uma tarefa" << std::endl;
-    std::cout << "5. Sair" << std::endl;
+    std::cout << "3. Remover tarefas por prioridade" << std::endl;
+    std::cout << "4. Remover uma tarefa por id" << std::endl;
+    std::cout << "5. Buscar uma tarefa" << std::endl;
+    std::cout << "6. Sair" << std::endl;
 }
