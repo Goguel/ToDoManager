@@ -22,6 +22,6 @@ public:
     void inserir(Tarefa novaTarefa);
     bool removerId(int id);
     bool removerPrioridade(Prioridade prioridade);
-    // void buscar(int id);
+    void buscar(int id);
     void exibir();
 };

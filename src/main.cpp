@@ -52,7 +52,7 @@ int main()
 
             removerPrioridade = static_cast<Prioridade>(prioridade);
             bool situacao = lista.removerPrioridade(removerPrioridade);
-            
+
             if (situacao)
             {
                 std::cout << "\nTarefas com prioridade "<< prioridade << " foram removidas com sucesso.\n" << std::endl;
@@ -61,7 +61,7 @@ int main()
         }
         case 4:
         {
-            std::cout << "Digite o id a ser removido: ";
+            std::cout << "Digite o id da tarefa a ser removida: ";
             int id;
             std::cin >> id;
 
@@ -74,7 +74,10 @@ int main()
         }
         case 5:
         {
-            std::cout << "Em desenvolvimento." << std::endl;
+            std::cout << "Digite o id da tarefa a ser buscado: ";
+            int id;
+            std::cin >> id;
+            lista.buscar(id);
             break;
         }
         case 6:

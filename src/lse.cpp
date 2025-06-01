@@ -1,5 +1,6 @@
 #include "../include/lse.hpp"
 #include <cstddef>
+#include <ostream>
 
 Lse::Lse()
 {
@@ -108,6 +109,7 @@ bool Lse::removerPrioridade(Prioridade prioridade)
     if (h == nullptr)
     {
         std::cout << "\nNão há tarefas para serem removidas.\n" << std::endl;
+        return false;
     }
 
     while (h != nullptr) 
@@ -150,6 +152,7 @@ bool Lse::removerId(int id)
     if (h == nullptr)
     {
         std::cout << "\nNão existe tarefa para ser removida.\n" << std::endl;
+        return false;
     }
 
     while (h != nullptr) 
@@ -183,4 +186,41 @@ bool Lse::removerId(int id)
     }
 
     return houveRemocao? true : false;
+}
+
+void Lse::buscar(int id)
+{
+    No<Tarefa> *h = _head;
+    bool situacao = false;
+
+    if (h == nullptr)
+    {
+        std::cout << "\nNão há tarefas a serem buscadas.\n" << std::endl;
+        return;
+    }
+
+    while (h != nullptr)
+    {
+        Tarefa t = h->value;
+
+        if (t.id == id)
+        {
+            situacao = true;
+            std::cout << '\n';
+            _exibirSeparador();
+            std::cout << "Id: " << t.id << std::endl;
+            std::cout << "Descricao: " << t.descricao << std::endl;
+            std::cout << "Prioridade: " << t.prioridade << std::endl;
+            _exibirSeparador();
+            std::cout << '\n';
+            break;
+        }
+
+        h = h->proximo;
+    }
+
+    if (!situacao)
+    {
+        std::cout << "\nNão existe tarefa com esse ID.\n" << std::endl;
+    }
 }
