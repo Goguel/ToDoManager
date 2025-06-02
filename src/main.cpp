@@ -44,12 +44,11 @@ int main()
             Prioridade removerPrioridade;
             std::cin >> prioridade;
 
-            if ((prioridade != Prioridade::ALTA) && (prioridade != Prioridade::MEDIA) && (prioridade != Prioridade::BAIXA))
+            if (prioridade < Prioridade::ALTA ||  prioridade > Prioridade::BAIXA)
             {
                 std::cout << "\nEssa prioridade inserida não existe.\n" << std::endl;
                 break;
             }
-
             removerPrioridade = static_cast<Prioridade>(prioridade);
             bool situacao = lista.removerPrioridade(removerPrioridade);
 
