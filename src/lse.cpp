@@ -224,3 +224,28 @@ void Lse::buscar(int id)
         std::cout << "\nNão existe tarefa com esse ID.\n" << std::endl;
     }
 }
+
+void Lse::exibirTarefasPrioridade()
+{
+
+    for (int idx{1}; idx < 4; ++idx)
+    {
+        No<Tarefa> *h = _head;
+        while (h != nullptr)
+        {
+            Tarefa t = h->value;
+            if (idx == t.prioridade)
+            {
+                std::cout << '\n';
+                _exibirSeparador();
+                std::cout << "Id: " << t.id << std::endl;
+                std::cout << "Descricao: " << t.descricao << std::endl;
+                std::cout << "Prioridade: " << t.prioridade << std::endl;
+                _exibirSeparador();
+                std::cout << '\n';
+            }
+
+            h = h->proximo;
+        }
+    }
+}

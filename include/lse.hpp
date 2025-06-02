@@ -9,7 +9,6 @@ class Lse
 private:
     No<Tarefa> *_head;
     No<Tarefa> *_buscarUltimo(No<Tarefa> *h);
-    // void _ordenar();
     void _exibirSeparador();
     No<Tarefa> *_buscarAnterior(No<Tarefa> *h, No<Tarefa> *a);
 
@@ -24,4 +23,5 @@ public:
     bool removerPrioridade(Prioridade prioridade);
     void buscar(int id);
     void exibir();
+    void exibirTarefasPrioridade();
 };

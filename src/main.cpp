@@ -82,6 +82,11 @@ int main()
         }
         case 6:
         {
+            lista.exibirTarefasPrioridade();
+            break;
+        }
+        case 7:
+        {
             std::cout << "Saindo do gerenciador de tarefas. Até logo!" << std::endl;
             return 0;
         }
@@ -102,5 +107,6 @@ void exibirOpcoes()
     std::cout << "3. Remover tarefas por prioridade" << std::endl;
     std::cout << "4. Remover uma tarefa por id" << std::endl;
     std::cout << "5. Buscar uma tarefa" << std::endl;
-    std::cout << "6. Sair" << std::endl;
+    std::cout << "6. Exibir todas as tarefas ordenadas por priodidade" << std::endl;
+    std::cout << "7. Sair" << std::endl;
 }
