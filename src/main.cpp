@@ -23,7 +23,7 @@ int main()
         switch (opcao)
         {
         case 1:
-            lista.exibir();
+            lista.exibirAll();
             break;
         case 2:
         {
@@ -37,7 +37,7 @@ int main()
             std::cin >> prioridade;
             novaTarefa.prioridade = static_cast<Prioridade>(prioridade);
 
-            lista.inserir(novaTarefa);
+            lista.inserirTarefa(novaTarefa);
             break;
         }
         case 3:
@@ -54,7 +54,7 @@ int main()
                 break;
             }
             removerPrioridade = static_cast<Prioridade>(prioridade);
-            bool situacao = lista.removerPrioridade(removerPrioridade);
+            bool situacao = lista.removerByPrioridade(removerPrioridade);
 
             if (situacao)
             {
@@ -69,7 +69,7 @@ int main()
             int id;
             std::cin >> id;
 
-            bool situacao = lista.removerId(id);
+            bool situacao = lista.removerById(id);
             if (situacao)
             {
                 std::cout << "\nTarefa com id " << id << " foi removida com sucesso.\n"
@@ -82,12 +82,12 @@ int main()
             std::cout << "Digite o id da tarefa a ser buscado: ";
             int id;
             std::cin >> id;
-            lista.buscar(id);
+            lista.buscarById(id);
             break;
         }
         case 6:
         {
-            lista.exibirTarefasPrioridade();
+            lista.exibirTarefasByPrioridade();
             break;
         }
         case 7:
