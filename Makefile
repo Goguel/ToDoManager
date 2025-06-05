@@ -6,7 +6,6 @@ CLEAR = clear
 
 ${TARGET}: ${OBJECTS}
 	${CPP} ${CFLAGS} -o ${TARGET} ${SOURCES}
-	${CLEAR}
 
 run: ${TARGET}
 	./${TARGET}
