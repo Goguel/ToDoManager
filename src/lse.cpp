@@ -14,12 +14,11 @@ Lse::Lse(Tarefa tarefa)
 {
     /// Alocação dinâmica na criação do nó.
     No<Tarefa> *newHead = new No<Tarefa>();
-    newHead->value = tarefa;   
+    newHead->value = tarefa;
 
     /// Atribui o endereço do novo nó ao nó cabeça.
     _head = newHead;
 }
-
 
 int Lse::length(No<Tarefa> *h)
 {
@@ -94,11 +93,11 @@ void Lse::_exibirSeparador()
     std::cout << "----------------------------------------" << std::endl;
 }
 
-No<Tarefa> *Lse::_buscarAnterior(No<Tarefa> *h, No<Tarefa> *a) 
+No<Tarefa> *Lse::_buscarAnterior(No<Tarefa> *h, No<Tarefa> *a)
 {
     No<Tarefa> *anterior = h;
-    
-    while(h != a) 
+
+    while (h != a)
     {
         anterior = h;
         h = h->proximo;
@@ -114,15 +113,16 @@ bool Lse::removerByPrioridade(Prioridade prioridade)
 
     if (h == nullptr)
     {
-        std::cout << "\nNão há tarefas para serem removidas.\n" << std::endl;
+        std::cout << "\nNão há tarefas para serem removidas.\n"
+                  << std::endl;
         return false;
     }
 
-    while (h != nullptr) 
+    while (h != nullptr)
     {
         Tarefa t = h->value;
 
-        if (t.prioridade == prioridade) 
+        if (t.prioridade == prioridade)
         {
             houveRemocao = true;
             No<Tarefa> *a = h;
@@ -132,22 +132,22 @@ bool Lse::removerByPrioridade(Prioridade prioridade)
             {
                 _head = a->proximo;
             }
-            if (a->proximo == nullptr) 
+            if (a->proximo == nullptr)
             {
                 anterior->proximo = nullptr;
-            } 
+            }
             else
             {
                 anterior->proximo = a->proximo;
-            } 
-            
+            }
+
             delete a;
         }
 
         h = h->proximo;
     }
 
-    return houveRemocao? true : false;
+    return houveRemocao ? true : false;
 }
 
 bool Lse::removerById(int id)
@@ -157,15 +157,16 @@ bool Lse::removerById(int id)
 
     if (h == nullptr)
     {
-        std::cout << "\nNão existe tarefa para ser removida.\n" << std::endl;
+        std::cout << "\nNão existe tarefa para ser removida.\n"
+                  << std::endl;
         return false;
     }
 
-    while (h != nullptr) 
+    while (h != nullptr)
     {
         Tarefa t = h->value;
 
-        if (t.id == id) 
+        if (t.id == id)
         {
             houveRemocao = true;
             No<Tarefa> *a = h;
@@ -175,15 +176,15 @@ bool Lse::removerById(int id)
             {
                 _head = a->proximo;
             }
-            if (a->proximo == nullptr) 
+            if (a->proximo == nullptr)
             {
                 anterior->proximo = nullptr;
-            } 
+            }
             else
             {
                 anterior->proximo = a->proximo;
-            } 
-            
+            }
+
             delete a;
             break;
         }
@@ -191,7 +192,7 @@ bool Lse::removerById(int id)
         h = h->proximo;
     }
 
-    return houveRemocao? true : false;
+    return houveRemocao ? true : false;
 }
 
 void Lse::buscarById(int id)
@@ -201,7 +202,8 @@ void Lse::buscarById(int id)
 
     if (h == nullptr)
     {
-        std::cout << "\nNão há tarefas a serem buscadas.\n" << std::endl;
+        std::cout << "\nNão há tarefas a serem buscadas.\n"
+                  << std::endl;
         return;
     }
 
@@ -227,7 +229,8 @@ void Lse::buscarById(int id)
 
     if (!situacao)
     {
-        std::cout << "\nNão existe tarefa com esse ID.\n" << std::endl;
+        std::cout << "\nNão existe tarefa com esse ID.\n"
+                  << std::endl;
     }
 }
 

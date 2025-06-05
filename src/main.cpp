@@ -4,7 +4,7 @@
 #include <ostream>
 
 /**
- * @brief 
+ * @brief
  */
 void exibirOpcoes();
 
@@ -47,9 +47,10 @@ int main()
             Prioridade removerPrioridade;
             std::cin >> prioridade;
 
-            if (prioridade < Prioridade::ALTA ||  prioridade > Prioridade::BAIXA)
+            if (prioridade < Prioridade::ALTA || prioridade > Prioridade::BAIXA)
             {
-                std::cout << "\nEssa prioridade inserida não existe.\n" << std::endl;
+                std::cout << "\nEssa prioridade inserida não existe.\n"
+                          << std::endl;
                 break;
             }
             removerPrioridade = static_cast<Prioridade>(prioridade);
@@ -57,7 +58,8 @@ int main()
 
             if (situacao)
             {
-                std::cout << "\nTarefas com prioridade "<< prioridade << " foram removidas com sucesso.\n" << std::endl;
+                std::cout << "\nTarefas com prioridade " << prioridade << " foram removidas com sucesso.\n"
+                          << std::endl;
             }
             break;
         }
@@ -70,7 +72,8 @@ int main()
             bool situacao = lista.removerId(id);
             if (situacao)
             {
-                std::cout << "\nTarefa com id " << id << " foi removida com sucesso.\n" << std::endl;
+                std::cout << "\nTarefa com id " << id << " foi removida com sucesso.\n"
+                          << std::endl;
             }
             break;
         }

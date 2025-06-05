@@ -7,6 +7,6 @@
 template <class T>
 struct No
 {
-    T value;        ///< Valor armazenado no nó.
-    No *proximo;    ///< Ponteiro para o próximo nó.
+    T value;     ///< Valor armazenado no nó.
+    No *proximo; ///< Ponteiro para o próximo nó.
 };

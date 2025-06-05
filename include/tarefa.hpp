@@ -7,7 +7,7 @@
  */
 struct Tarefa
 {
-    int id;                 ///< O id representa o índice de cada tarefa.
-    std::string descricao;  ///< Variável para armazenar a descrição inserida.
-    int prioridade;         ///< Prioridades atribuídas: alta, média e baixa.
+    int id;                ///< O id representa o índice de cada tarefa.
+    std::string descricao; ///< Variável para armazenar a descrição inserida.
+    int prioridade;        ///< Prioridades atribuídas: alta, média e baixa.
 };
