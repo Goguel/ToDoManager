@@ -44,7 +44,7 @@ No<Tarefa> *Lse::_buscarUltimo(No<Tarefa> *h)
     return anterior;
 }
 
-void Lse::inserir(Tarefa novaTarefa)
+void Lse::inserirTarefa(Tarefa novaTarefa)
 {
     novaTarefa.id = length(_head) + 1;
 
@@ -64,7 +64,7 @@ void Lse::inserir(Tarefa novaTarefa)
     ultimo->proximo = nn;
 }
 
-void Lse::exibir()
+void Lse::exibirAll()
 {
     No<Tarefa> *h = _head;
 
@@ -107,7 +107,7 @@ No<Tarefa> *Lse::_buscarAnterior(No<Tarefa> *h, No<Tarefa> *a)
     return anterior;
 }
 
-bool Lse::removerPrioridade(Prioridade prioridade)
+bool Lse::removerByPrioridade(Prioridade prioridade)
 {
     No<Tarefa> *h = _head;
     bool houveRemocao = false;
@@ -150,7 +150,7 @@ bool Lse::removerPrioridade(Prioridade prioridade)
     return houveRemocao? true : false;
 }
 
-bool Lse::removerId(int id)
+bool Lse::removerById(int id)
 {
     No<Tarefa> *h = _head;
     bool houveRemocao = false;
@@ -194,7 +194,7 @@ bool Lse::removerId(int id)
     return houveRemocao? true : false;
 }
 
-void Lse::buscar(int id)
+void Lse::buscarById(int id)
 {
     No<Tarefa> *h = _head;
     bool situacao = false;
@@ -231,7 +231,7 @@ void Lse::buscar(int id)
     }
 }
 
-void Lse::exibirTarefasPrioridade()
+void Lse::exibirTarefasByPrioridade()
 {
 
     for (int idx{1}; idx < 4; ++idx)
