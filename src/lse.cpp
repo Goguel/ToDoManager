@@ -2,18 +2,24 @@
 #include <cstddef>
 #include <ostream>
 
+/// Construtor Padrão.
 Lse::Lse()
 {
+    /// O nó cabeça aponta para o vazio.
     _head = nullptr;
 }
 
+/// Construtor.
 Lse::Lse(Tarefa tarefa)
 {
+    /// Alocação dinâmica na criação do nó.
     No<Tarefa> *newHead = new No<Tarefa>();
-    newHead->value = tarefa;
+    newHead->value = tarefa;   
 
+    /// Atribui o endereço do novo nó ao nó cabeça.
     _head = newHead;
 }
+
 
 int Lse::length(No<Tarefa> *h)
 {

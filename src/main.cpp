@@ -3,6 +3,9 @@
 #include <iostream>
 #include <ostream>
 
+/**
+ * @brief 
+ */
 void exibirOpcoes();
 
 int main()
