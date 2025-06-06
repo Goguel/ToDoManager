@@ -2,21 +2,16 @@
 #include <cstddef>
 #include <ostream>
 
-/// Construtor Padrão.
 Lse::Lse()
 {
-    /// O nó cabeça aponta para o vazio.
     _head = nullptr;
 }
 
-/// Construtor.
 Lse::Lse(Tarefa tarefa)
 {
-    /// Alocação dinâmica na criação do nó.
     No<Tarefa> *newHead = new No<Tarefa>();
     newHead->value = tarefa;
 
-    /// Atribui o endereço do novo nó ao nó cabeça.
     _head = newHead;
 }
 
@@ -236,7 +231,6 @@ void Lse::buscarById(int id)
 
 void Lse::exibirTarefasByPrioridade()
 {
-
     for (int idx{1}; idx < 4; ++idx)
     {
         No<Tarefa> *h = _head;
